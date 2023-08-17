@@ -1,5 +1,7 @@
 package org.pokesplash.cobblemontournaments.config;
 
+import com.google.gson.Gson;
+import org.pokesplash.cobblemontournaments.Utils;
 import org.pokesplash.cobblemontournaments.types.ScheduledItem;
 
 import java.util.ArrayList;
@@ -32,5 +34,8 @@ public class ScheduleConfig {
 	 */
 	public void addSchedule(ScheduledItem item) {
 		scheduled_tournaments.add(item);
+
+		Gson gson = Utils.newGson();
+		Utils.writeFileAsync("", "schedule.json", gson.toJson(this));
 	}
 }
