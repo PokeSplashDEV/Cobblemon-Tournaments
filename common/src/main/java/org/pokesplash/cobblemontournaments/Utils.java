@@ -8,6 +8,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.function.Consumer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -127,5 +130,24 @@ public abstract class Utils {
 	 */
 	public static Gson newGson() {
 		return new GsonBuilder().setPrettyPrinting().create();
+	}
+
+	/**
+	 * Converts a String date to a Date object.
+	 * @param date the date as a String using the format "yyyy/MM/dd-HH:mm:ss".
+	 * @return The date object generated from the string.
+	 */
+	public static Date parseDateString(String date) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss");
+		return sdf.parse(date, new ParsePosition(0));
+	}
+
+	/**
+	 * Converts a long value (milliseconds) to a Date object.
+	 * @param date the date in milliseconds (long type)
+	 * @return The date object generated from the long.
+	 */
+	public static Date parseDateLong(long date) {
+		return new Date(date);
 	}
 }

@@ -8,9 +8,13 @@ import org.pokesplash.cobblemontournaments.config.MainConfig;
 import org.pokesplash.cobblemontournaments.config.PresetConfig;
 import org.pokesplash.cobblemontournaments.config.ScheduleConfig;
 import org.pokesplash.cobblemontournaments.config.TierConfig;
+import org.pokesplash.cobblemontournaments.types.ScheduledItem;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Class that controls the reading and loading into memory of all configs.
@@ -130,6 +134,11 @@ public class ConfigProvider {
 		boolean configReadSuccess = Utils.readFileAsync("", "schedule.json", el -> {
 			Gson gson = Utils.newGson();
 			schedule = gson.fromJson(el, ScheduleConfig.class);
+
+			// After loading schedule to memory, schedule all tournaments to file.
+			for (ScheduledItem scheduledTournament : schedule.getScheduledTournaments()) {
+				schedule.scheduleTournament(scheduledTournament);
+			}
 		});
 
 		// If the main config file could not be found, an attempt is made to create one.
