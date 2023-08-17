@@ -9,7 +9,11 @@
   "license": "MIT",
   "icon": "icon.png",
   "environment": "*",
-  "entrypoints": {},
+  "entrypoints": {
+    "main": [
+      "org.pokesplash.cobblemontournaments.fabric.CobblemonTournamentsFabric"
+    ]
+  },
   "depends": {
     "fabricloader": ">=0.14.22",
     "minecraft": ">=1.20.1"
