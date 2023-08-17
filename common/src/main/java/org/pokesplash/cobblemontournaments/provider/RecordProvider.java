@@ -13,26 +13,17 @@ import java.util.UUID;
 /**
  * Class that enables interactions between PlayerRecords.
  */
-public class RecordProvider {
+public abstract class RecordProvider {
 	// HashMap where all player records are stored in memory.
-	private HashMap<UUID, PlayerRecord> records;
+	private static HashMap<UUID, PlayerRecord> records  = new HashMap<>();
 
 	// Logger for system outputs.
-	private final Logger logger;
-
-	/**
-	 * Constructor to create a new RecordProvider.
-	 */
-	public RecordProvider() {
-		records = new HashMap<>();
-
-		logger = LogManager.getLogger();
-	}
+	private static final Logger logger = LogManager.getLogger();
 
 	/**
 	 * Method to load all records from file to memory.
 	 */
-	public void loadRecords() {
+	public static void loadRecords() {
 		// Checks directory exists, if not, creates it.
 		File dir = Utils.getDirectory("records/");
 
@@ -66,7 +57,7 @@ public class RecordProvider {
 	 * @param uuid the UUID of the player whos record is to be fetched.
 	 * @return The Record of the player.
 	 */
-	public PlayerRecord getRecord(UUID uuid) {
+	public static PlayerRecord getRecord(UUID uuid) {
 		if (records.containsKey(uuid)) {
 			return records.get(uuid);
 		} else {
@@ -80,7 +71,7 @@ public class RecordProvider {
 	 * @param username The username of the player.
 	 * @return String used for debug.
 	 */
-	public String createRecord(UUID uuid, String username) {
+	public static String createRecord(UUID uuid, String username) {
 		if (records.containsKey(uuid)) {
 			return "User with UUID " + uuid + " already has a record for Cobblemon Tournaments.";
 		}
@@ -100,7 +91,7 @@ public class RecordProvider {
 	 * @param newPlayerRecord The PlayerRecord that should overwite the old data of the player.
 	 * @return String used for debug.
 	 */
-	public String updateRecord(PlayerRecord newPlayerRecord) {
+	public static String updateRecord(PlayerRecord newPlayerRecord) {
 		if (!records.containsKey(newPlayerRecord.getUuid())) {
 			return "Player with uuid " + newPlayerRecord.getUuid() + " does not exist and can not be updated.";
 		}
@@ -123,7 +114,7 @@ public class RecordProvider {
 	 * @param record The record to be written to file.
 	 * @return true if the file was successfully written.
 	 */
-	private boolean writeRecordToFile(PlayerRecord record) {
+	private static boolean writeRecordToFile(PlayerRecord record) {
 		Gson gson = Utils.newGson();
 
 		return Utils.writeFileAsync("records/", record.getUuid().toString() + ".json", gson.toJson(record));

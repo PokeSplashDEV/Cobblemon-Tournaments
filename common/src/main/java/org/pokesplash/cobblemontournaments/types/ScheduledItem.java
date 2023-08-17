@@ -1,9 +1,5 @@
 package org.pokesplash.cobblemontournaments.types;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
 /**
  * Object that holds the schedule for an upcoming tournament.
  */

@@ -19,31 +19,22 @@ import java.util.concurrent.TimeUnit;
 /**
  * Class that controls the reading and loading into memory of all configs.
  */
-public class ConfigProvider {
+public abstract class ConfigProvider {
 	// The main config file.
-	private MainConfig config;
+	private static MainConfig config;
 	// A HashMap of all presets, with their name as the key.
-	private HashMap<String, PresetConfig> presets;
+	private static HashMap<String, PresetConfig> presets = new HashMap<>();
 	// The schedule file.
-	private ScheduleConfig schedule;
+	private static ScheduleConfig schedule;
 	// A HashMap of all tiers, with their name as the key.
-	private HashMap<String, TierConfig> tiers;
+	private static HashMap<String, TierConfig> tiers = new HashMap<>();
 	// A logger to log any information.
-	private final Logger logger;
-
-	/**
-	 * Constructor that creates a logger.
-	 */
-	public ConfigProvider() {
-		logger = LogManager.getLogger();
-		presets = new HashMap<>();
-		tiers = new HashMap<>();
-	}
+	private static final Logger logger = LogManager.getLogger();
 
 	/**
 	 * Method to load all configs to memory.
 	 */
-	public void loadConfigs() {
+	public static void loadConfigs() {
 		loadMainConfig();
 		loadPresets();
 		loadSchedule();
@@ -53,7 +44,7 @@ public class ConfigProvider {
 	/**
 	 * Method to load the main config to memory.
 	 */
-	private void loadMainConfig() {
+	private static void loadMainConfig() {
 		// Attempts to read the main config file.
 		boolean configReadSuccess = Utils.readFileAsync("", "config.json", el -> {
 			Gson gson = Utils.newGson();
@@ -83,7 +74,7 @@ public class ConfigProvider {
 	/**
 	 * Method to load the presets to memory.
 	 */
-	private void loadPresets() {
+	private static void loadPresets() {
 		// Checks directory exists, if not, creates it.
 		File dir = Utils.getDirectory("presets/");
 
@@ -129,7 +120,7 @@ public class ConfigProvider {
 	/**
 	 * Method to load the schedule to memory.
 	 */
-	private void loadSchedule() {
+	private static void loadSchedule() {
 		// Attempts to read the schedule file.
 		boolean configReadSuccess = Utils.readFileAsync("", "schedule.json", el -> {
 			Gson gson = Utils.newGson();
@@ -163,7 +154,7 @@ public class ConfigProvider {
 	/**
 	 * Method to load the tiers to memory.
 	 */
-	private void loadTiers() {
+	private static void loadTiers() {
 		// Checks directory exists, if not, creates it.
 		File dir = Utils.getDirectory("tiers/");
 
@@ -210,7 +201,7 @@ public class ConfigProvider {
 	 * Getter for the main config.
 	 * @return The main config object.
 	 */
-	public MainConfig getConfig() {
+	public static MainConfig getConfig() {
 		return config;
 	}
 
@@ -218,7 +209,7 @@ public class ConfigProvider {
 	 * Getter for the presets.
 	 * @return HashMap of all presets.
 	 */
-	public HashMap<String, PresetConfig> getPresets() {
+	public static HashMap<String, PresetConfig> getPresets() {
 		return presets;
 	}
 
@@ -226,7 +217,7 @@ public class ConfigProvider {
 	 * Getter for the schedule.
 	 * @return The schedule object.
 	 */
-	public ScheduleConfig getSchedule() {
+	public static ScheduleConfig getSchedule() {
 		return schedule;
 	}
 
@@ -234,7 +225,7 @@ public class ConfigProvider {
 	 * Getter for the tiers.
 	 * @return HashMap of all tiers.
 	 */
-	public HashMap<String, TierConfig> getTiers() {
+	public static HashMap<String, TierConfig> getTiers() {
 		return tiers;
 	}
 }
