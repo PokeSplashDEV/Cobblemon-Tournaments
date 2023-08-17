@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "cobblemontournaments",
+  "version": "${version}",
+  "name": "CobblemonTournaments",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {},
+  "depends": {
+    "fabricloader": ">=0.14.22",
+    "minecraft": ">=1.20.1"
+  }
+}
