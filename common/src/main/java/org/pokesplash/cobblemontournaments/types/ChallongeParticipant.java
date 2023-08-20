@@ -2,7 +2,10 @@ package org.pokesplash.cobblemontournaments.types;
 
 import java.util.ArrayList;
 
-public class Participant {
+/**
+ * Response Class from the Challonge API for a match.
+ */
+public class ChallongeParticipant {
 	private final long id;
 	private final long tournament_id;
 	private final String name;
@@ -42,7 +45,7 @@ public class Participant {
 	private final boolean has_irrelevant_seed;
 	private final String ordinal_seed;
 
-	public Participant(long id, long tournament_id, String name, int seed, boolean active, String created_at, String updated_at, String invite_email, int final_rank, String misc, String icon, boolean on_waiting_list, long invitation_id, long group_id, String checked_in_at, long ranked_member_id, String custom_field_response, String clinch, long integration_uids, String challonge_username, long challonge_user_id, String challonge_email_address_verified, boolean removable, boolean participatable_or_invitation_attached, boolean confirm_removed, boolean invitation_pending, String display_name_with_invitation_email_address, String email_hash, String username, String display_name, String attached_participatable_portrait_url, boolean can_check_in, boolean checked_in, boolean reactivatable, boolean check_in_open, ArrayList<String> group_player_ids, boolean has_irrelevant_seed, String ordinal_seed) {
+	public ChallongeParticipant(long id, long tournament_id, String name, int seed, boolean active, String created_at, String updated_at, String invite_email, int final_rank, String misc, String icon, boolean on_waiting_list, long invitation_id, long group_id, String checked_in_at, long ranked_member_id, String custom_field_response, String clinch, long integration_uids, String challonge_username, long challonge_user_id, String challonge_email_address_verified, boolean removable, boolean participatable_or_invitation_attached, boolean confirm_removed, boolean invitation_pending, String display_name_with_invitation_email_address, String email_hash, String username, String display_name, String attached_participatable_portrait_url, boolean can_check_in, boolean checked_in, boolean reactivatable, boolean check_in_open, ArrayList<String> group_player_ids, boolean has_irrelevant_seed, String ordinal_seed) {
 		this.id = id;
 		this.tournament_id = tournament_id;
 		this.name = name;

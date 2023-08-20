@@ -5,7 +5,10 @@ import org.pokesplash.cobblemontournaments.bracket.response.ParticipantResponse;
 
 import java.util.ArrayList;
 
-public class Tournament {
+/**
+ * Response Class from the Challonge API for a match.
+ */
+public class ChallongeTournament {
 	private final boolean accept_attachments;
 	private final boolean allow_participant_match_reporting;
 	private final boolean anonymous_voting;
@@ -73,11 +76,11 @@ public class Tournament {
 
 	private final ArrayList<MatchResponse> matches;
 
-	public Tournament(boolean accept_attachments, boolean allow_participant_match_reporting, boolean anonymous_voting,
-	                  String category, int check_in_duration, String completed_at, String created_at,
-	                  boolean created_by_api, boolean credit_capped, String description, int game_id,
-	                  boolean group_stages_enabled, boolean hide_forum, boolean hide_seeds,
-	                  boolean hold_third_place_match, long id, int max_predictions_per_user, String name, boolean notify_users_when_matches_open, boolean notify_users_when_the_tournament_ends, boolean open_signup, int participants_count, int prediction_method, String predictions_opened_at, boolean PRIVATE, int progress_meter, String pts_for_bye, String pts_for_game_tie, String pts_for_game_win, String pts_for_match_tie, String pts_for_match_win, boolean quick_advance, String ranked_by, boolean require_score_agreement, String rr_pts_for_game_tie, String rr_pts_for_game_win, String rr_pts_for_match_tie, String rr_pts_for_match_win, boolean sequential_pairings, boolean show_rounds, int signup_cap, String start_at, String started_at, String started_checking_in_at, String state, int swiss_rounds, boolean teams, ArrayList<String> tie_breaks, String tournament_type, String updated_at, String url, String description_source, String subdomain, String full_challonge_url, String live_image_url, String sign_up_url, boolean review_before_finalizing, boolean accepting_predictions, boolean participants_locked, String game_name, boolean participants_swappable, boolean team_convertable, boolean group_stages_were_started, ArrayList<ParticipantResponse> participants, ArrayList<MatchResponse> matches) {
+	public ChallongeTournament(boolean accept_attachments, boolean allow_participant_match_reporting, boolean anonymous_voting,
+	                           String category, int check_in_duration, String completed_at, String created_at,
+	                           boolean created_by_api, boolean credit_capped, String description, int game_id,
+	                           boolean group_stages_enabled, boolean hide_forum, boolean hide_seeds,
+	                           boolean hold_third_place_match, long id, int max_predictions_per_user, String name, boolean notify_users_when_matches_open, boolean notify_users_when_the_tournament_ends, boolean open_signup, int participants_count, int prediction_method, String predictions_opened_at, boolean PRIVATE, int progress_meter, String pts_for_bye, String pts_for_game_tie, String pts_for_game_win, String pts_for_match_tie, String pts_for_match_win, boolean quick_advance, String ranked_by, boolean require_score_agreement, String rr_pts_for_game_tie, String rr_pts_for_game_win, String rr_pts_for_match_tie, String rr_pts_for_match_win, boolean sequential_pairings, boolean show_rounds, int signup_cap, String start_at, String started_at, String started_checking_in_at, String state, int swiss_rounds, boolean teams, ArrayList<String> tie_breaks, String tournament_type, String updated_at, String url, String description_source, String subdomain, String full_challonge_url, String live_image_url, String sign_up_url, boolean review_before_finalizing, boolean accepting_predictions, boolean participants_locked, String game_name, boolean participants_swappable, boolean team_convertable, boolean group_stages_were_started, ArrayList<ParticipantResponse> participants, ArrayList<MatchResponse> matches) {
 		this.accept_attachments = accept_attachments;
 		this.allow_participant_match_reporting = allow_participant_match_reporting;
 		this.anonymous_voting = anonymous_voting;

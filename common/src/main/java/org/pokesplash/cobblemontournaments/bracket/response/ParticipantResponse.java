@@ -1,15 +1,15 @@
 package org.pokesplash.cobblemontournaments.bracket.response;
 
-import org.pokesplash.cobblemontournaments.types.Participant;
+import org.pokesplash.cobblemontournaments.types.ChallongeParticipant;
 
 public class ParticipantResponse {
-	private final Participant participant;
+	private final ChallongeParticipant participant;
 
-	public ParticipantResponse(Participant participant) {
-		this.participant = participant;
+	public ParticipantResponse(ChallongeParticipant challongeParticipant) {
+		this.participant = challongeParticipant;
 	}
 
-	public Participant getParticipant() {
+	public ChallongeParticipant getParticipant() {
 		return participant;
 	}
 }

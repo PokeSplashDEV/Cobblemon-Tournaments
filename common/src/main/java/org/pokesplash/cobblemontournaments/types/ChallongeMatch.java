@@ -1,6 +1,9 @@
 package org.pokesplash.cobblemontournaments.types;
 
-public class Match {
+/**
+ * Response Class from the Challonge API for a match.
+ */
+public class ChallongeMatch {
 	private final long id;
 	private final long tournament_id;
 	private final String state;
@@ -36,7 +39,7 @@ public class Match {
 	private final String prerequisite_match_ids_csv;
 	private final String scores_csv;
 
-	public Match(long id, long tournament_id, String state, long player1_id, long player2_id, long player1_prereq_match_id, long player2_prereq_match_id, boolean player1_is_prereq_match_loser, boolean player2_is_prereq_match_loser, long winner_id, long loser_id, String started_at, String created_at, String updated_at, String indetifier, boolean has_attachment, int round, int player1_votes, int player2_votes, long group_id, int attachment_count, String scheduled_time, String location, String underway_at, boolean optional, long rushb_id, String completed_at, int suggested_play_order, boolean forfeited, String open_graph_image_file_name, String open_graph_image_content_type, String open_graph_image_file_size, String prerequisite_match_ids_csv, String scores_csv) {
+	public ChallongeMatch(long id, long tournament_id, String state, long player1_id, long player2_id, long player1_prereq_match_id, long player2_prereq_match_id, boolean player1_is_prereq_match_loser, boolean player2_is_prereq_match_loser, long winner_id, long loser_id, String started_at, String created_at, String updated_at, String indetifier, boolean has_attachment, int round, int player1_votes, int player2_votes, long group_id, int attachment_count, String scheduled_time, String location, String underway_at, boolean optional, long rushb_id, String completed_at, int suggested_play_order, boolean forfeited, String open_graph_image_file_name, String open_graph_image_content_type, String open_graph_image_file_size, String prerequisite_match_ids_csv, String scores_csv) {
 		this.id = id;
 		this.tournament_id = tournament_id;
 		this.state = state;
